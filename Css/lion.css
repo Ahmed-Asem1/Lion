@@ -5,6 +5,7 @@
 }
 :root{
     --main-color:#10cab7;
+    --main-bg-color:#f6f6f6;
 }
 .main-color{
     color: var(--main-color);
@@ -15,12 +16,19 @@ a{
     color: black;
 }
 /* Componanet */
+.heading{
+    margin-bottom: 5em;
+}
 .heading h2{
-    font-size: 77px;
-    opacity: 0.4;
+    font-size: 100px;
+    color: #ebeced;
     font-weight: 900;
     width: fit-content;
     margin: 0 auto;
+}
+.heading p{
+    color: #797979;
+    font-size: 22px;
 }
 @media (max-width:576px){
     .heading h2{
@@ -28,9 +36,13 @@ a{
     }
 }
 /* Start Navbar */
+@media(min-width:1400px){
+    nav .container{
+        max-width: 1172px;
+    }
+}
 nav .logo img{
     width: 50px;
-    height: 50px;
 }
 nav span.icon{
     width: 40px;
@@ -40,9 +52,15 @@ nav span.icon{
     align-items: end;
     cursor: pointer;
 }
+nav .links{
+    width: fit-content;
+}
+nav .links:hover .dropdown-menu{
+    display: block;
+}
 nav span.icon span{
     background-color: black;
-    height: 3px;
+    height: 2px;
     margin-bottom: 6px;
 }
 nav span.icon span:first-child{
@@ -61,8 +79,20 @@ nav span.icon:hover span:nth-child(2){
 }
 nav .dropdown-menu{
     width: 200px;
-    transform: translate3d(-126.67px, 33.2222px, 0px) !important;
-    inset: 0px 0px 0px 0px;
+    margin-top: 12px;
+    right: 10px;
+    background-color: #f2f2f2;
+    /* transform: translate3d(-126.67px, 33.2222px, 0px) !important;
+    inset: 0px 0px 0px 0px; */
+}
+nav .dropdown-menu::before{
+    content: "";
+    position: absolute;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #f2f2f2 transparent;
+    top: -17px;
+    right: 12px;
 }
 nav .dropdown-menu li {
     display: inline-block;
@@ -72,48 +102,88 @@ nav .dropdown-menu li {
     width: 100%;
     font-weight: 500;
     text-decoration: none;
+
 }
 nav .dropdown-menu li:not(:last-child){
     border-bottom: 1px solid rgba(0, 0, 0, 0.175);
 }
 nav .dropdown-menu li:hover {
     padding-left: 20px;
-    background-color: gray;
 }
 /* End Navbar */
 
 /* Start Landing Section */
 .landing{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../Pictures/landing.jpg);
+    background-image: url(../Pictures/landing.jpg);
     background-size: cover;
-    background-size: 100% 100%;
-    height: calc(70vh - 82px);
+    height: 92vh;
 }
 .landing h1{
-    font-size: 25px;
+    font-size: 50px;
+    padding-bottom: 20px;
 }
 /* End Landing Section */
 
 /* Start Features Section */
+.features{
+    padding: 4em 0;
+    background-color: var(--main-bg-color);
+}
+@media(min-width:1400px){
+    .features .container{
+        max-width: 1172px;
+    }
+}
+@media(min-width:768px){
+    .features .row p{
+        width: 95%;
+    }
+}
 /* End Features Section */
 
 /* Start Services Section */
+.services{
+    padding: 4em 0;
+}
 .services .image::before{
     content: "";
     position: absolute;
     z-index: -1;
     height: calc(100% + 80px);
-    width: 80px;
+    width: 100px;
     background-color: #2c4755;
-    right: -20px;
-    top: -40px;
+    right: -35px;
+    top: -70px;
+}
+@media(min-width:1400px){
+    .services .container{
+        max-width: 1172px;
+    }
+    .services .content{
+        margin-left: 8px;
+    }
+    .services .image{
+        margin-right: 46px;
+    }
 }
 /* End Services Section */
 
 /* Start Portofolio Section */
+.portfolio{
+    padding: 4em 0;
+    background-color: var(--main-bg-color);
+}
+@media(min-width:1400px){
+    .portfolio .container{
+        max-width: 1172px;
+    }
+}    
 /* End Portofolio Section */
 
 /* Start About Section */
+.about{
+    padding: 4em 0;
+}
 .about .content hr{
     border-width: 2.4px;
 }
@@ -131,7 +201,7 @@ nav .dropdown-menu li:hover {
         position: absolute;
         height: calc(100% + 80px);
         z-index: -1;
-        left: 0;
+        left: -7px;
         width: 80px;
         top:-40px;
         background-color: #ebeced;
@@ -152,6 +222,14 @@ nav .dropdown-menu li:hover {
 /* End About Section */
 
 /* Start Contact Section  */
+.contact{
+    padding: 4em 0;
+    background-color: var(--main-bg-color);
+}
+.contact .title h4{
+    color: #2c4755;
+    font-size: 35px;
+}
 /* End Contact Section  */
 
 /* Start Footer */
@@ -159,9 +237,12 @@ footer{
     background-color: #2c4755;
     height: 20vh;
 }
-/* .waviy {
-    position: relative;
-} */
+footer .the-creator h6{
+    font-size: 13px;
+}
+.waviy{
+    letter-spacing: -1px;
+}
 .waviy span {
     color: #111;
     animation: glowing 2s linear infinite;
@@ -179,7 +260,7 @@ footer{
                    0 0 300px #00b3ff,
                    0 0 400px #00b3ff;
     } 5%, 95% {
-      color: #111;
+      color: white;
       text-shadow: none;
       filter: blur(0px);
     }
